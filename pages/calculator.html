@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator - Math Toolkit</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+</head>
+<body class="calculator-page">
+
+    <nav class="navbar">
+        <div class="logo">
+             <i class="fa-solid fa-calculator"></i>Math Toolkit
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="number-converter.html">Number Converter</a>
+            <a href="calculator.html">SCI-Calculator</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="cgpa-calculator.html">CGPA Calculator</a>
+            <a href="../index.html#about-me">About Me</a>
+         </div>
+     </nav>
+
+    <div class="calc-main-container">
+        <div class="google-calculator">
+    <div class="calc-screen">
+        <div id="history-display"></div>
+        <input type="text" id="main-display" readonly value="0">
+    </div>
+
+    <div class="calc-grid">
+        <div class="mode-toggle">
+            <span id="deg-toggle" class="mode active" onclick="setMode('deg')">Deg</span>
+            <span class="pipe">|</span>
+            <span id="rad-toggle" class="mode" onclick="setMode('rad')">Rad</span>
+        </div>
+        <button class="sci-btn" onclick="append('!')">x!</button>
+        <button class="sci-btn" onclick="append('(')">(</button>
+        <button class="sci-btn" onclick="append(')')">)</button>
+        <button class="sci-btn" onclick="append('%')">%</button>
+        <button class="ac-btn" onclick="clearDisplay()">AC</button>
+
+        <button class="del-btn" onclick="backspace()">DEL</button>
+        <button class="sci-btn" onclick="append('sin(')">sin</button>
+        <button class="sci-btn" onclick="append('ln(')">ln</button>
+        <button class="num-btn" onclick="append('7')">7</button>
+        <button class="num-btn" onclick="append('8')">8</button>
+        <button class="num-btn" onclick="append('9')">9</button>
+        <button class="op-btn" onclick="append('/')">÷</button>
+
+        <button class="sci-btn" onclick="append('pi')">π</button>
+        <button class="sci-btn" onclick="append('cos(')">cos</button>
+        <button class="sci-btn" onclick="append('log10(')">log</button>
+        <button class="num-btn" onclick="append('4')">4</button>
+        <button class="num-btn" onclick="append('5')">5</button>
+        <button class="num-btn" onclick="append('6')">6</button>
+        <button class="op-btn" onclick="append('*')">×</button>
+
+        <button class="sci-btn" onclick="append('e')">e</button>
+        <button class="sci-btn" onclick="append('tan(')">tan</button>
+        <button class="sci-btn" onclick="append('sqrt(')">√</button>
+        <button class="num-btn" onclick="append('1')">1</button>
+        <button class="num-btn" onclick="append('2')">2</button>
+        <button class="num-btn" onclick="append('3')">3</button>
+        <button class="op-btn" onclick="append('-')">−</button>
+
+        <button class="sci-btn" onclick="useAns()">Ans</button>
+        <button class="sci-btn" onclick="append('exp')">EXP</button>
+        <button class="sci-btn" onclick="append('^')">x<sup>y</sup></button>
+        <button class="num-btn" onclick="append('0')">0</button>
+        <button class="num-btn" onclick="append('.')">.</button>
+        <button class="equal-btn" onclick="runCalculate()">=</button>
+        <button class="op-btn" onclick="append('+')">+</button>
+     </div>
+    </div>
+    </div>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 Math Toolkit | Designed & Developed by <a href="https://masud.aio.bd" target="_blank" rel="noopener noreferrer">Md. Masud Rana</a></p>
+        <div class="social-links">
+            <a href="https://github.com/masud770" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+            <a href="https://www.linkedin.com/in/masudr760/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="../js/calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,998 @@
+/* Keep your original Reset and Animation */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(-45deg, #020617, #0f172a, #1e3a8a, #0ea5e9);
+  background-size:400% 400%;
+  animation:bg 12s ease infinite;
+  color:white;
+  overflow-x: hidden;
+}
+
+@keyframes bg{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Your original Navbar with Backdrop Blur */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: #1e293b; /* Deep slate blue from your image */
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+    font-weight: 400;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color: #8ab4f8;
+}
+
+
+/* FOOTER STYLES */
+.main-footer {
+    width: 100%;
+    padding: 30px 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-content p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.footer-content span {
+    color: #8ab4f8;
+    font-weight: bold;
+}
+
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #94a3b8;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
+/* New Section for Tool Cards */
+.hero {
+  padding: 50px 8%;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.converter-page .hero {
+  padding: 60px 8%;
+}
+
+.converter-page .hero-text {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 30px;
+}
+
+.converter-page .hero-text h1 {
+  font-size: 3rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.converter-page .hero-text p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.converter-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.converter-panel .glass-panel {
+  padding: 32px;
+  min-height: 400px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #e2e8f0;
+}
+
+.panel-heading p {
+  margin: 8px 0 0;
+  color: #94a3b8;
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(138, 180, 248, 0.12);
+  color: #8ab4f8;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-secondary {
+  background: rgba(80, 250, 123, 0.14);
+  color: #7ef7a5;
+}
+
+.input-group {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.input-group label {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(40, 55, 110, 0.85);
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #8ab4f8;
+  background: rgba(138, 180, 248, 0.08);
+}
+
+.converter-results .result-box {
+  display: grid;
+  gap: 18px;
+}
+
+.result-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.result-card p {
+  margin: 0 0 6px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.result-card strong {
+  color: #ffffff;
+  font-size: 1.05rem;
+  word-break: break-all;
+}
+
+.result-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #c8f7ff;
+  background: rgba(138, 180, 248, 0.14);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .converter-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .converter-page .hero-text h1 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Responsive Grid for your items */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  perspective: 1000px;
+}
+
+.tool-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tool-card i {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #7dd3fc;
+}
+
+.tool-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.tool-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+/* Hover Effect - Makes it pop! */
+.tool-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-10px);
+  border-color: #7dd3fc;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  margin-top: 50px;
+  background: rgba(0,0,0,0.2);
+  font-size: 0.8rem;
+}
+
+/* ..........................................................Calculator Page Specifics ..........................................................*/
+
+.calc-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.google-calculator {
+    background: rgba(32, 33, 36, 0.9); /* Dark semi-transparent */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.calc-screen {
+    border: 1px solid #3c4043;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    text-align: right;
+    background: rgba(0,0,0,0.2);
+}
+
+#history-display {
+    color: #9aa0a6;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+#main-display {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 32px;
+    width: 100%;
+    text-align: right;
+    outline: none;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+.del-btn {
+    background: #da4453 !important; /* A soft red color for delete */
+    color: white !important;
+}
+
+.calc-grid button {
+    width: 100%;
+    aspect-ratio: 1 / 0.7; /* Keeps them slightly rectangular */
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: filter 0.1s;
+}
+
+.calc-grid button:active {
+    filter: brightness(1.3);
+}
+.calc-grid button:hover { background: #4c5055; }
+
+.num-btn { background-color: #3c4043 !important; }
+.sci-btn { background-color: #3c4043 !important; }
+.op-btn { background-color: #3c4043 !important; }
+.ac-btn { background-color: #3c4043 !important; }
+.del-btn { background-color: #dc3545 !important; } /* Red */
+.equal-btn { background-color: #8ab4f8 !important; color: #202124 !important; } /* Blue */
+
+/* Mode Toggle Styling */
+.mode-toggle {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; /* Better spacing */
+    background: rgba(255, 255, 255, 0.05); /* Slight box around them */
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.mode {
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    font-size: 13px;
+    color: #9aa0a6;
+    border: 1px solid transparent; /* Hidden border when inactive */
+}
+
+
+/* The "Hilighted" Active State */
+.mode.active {
+    color: #8ab4f8; /* Google Blue */
+    background: rgba(138, 180, 248, 0.1); /* Very faint blue background */
+    border: 1px solid #8ab4f8; /* The highlight border */
+    box-shadow: 0 0 8px rgba(138, 180, 248, 0.4); /* Subtle glow */
+    font-weight: bold;
+}
+
+.pipe {
+    color: #3c4043;
+    font-weight: lighter;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .calc-grid { grid-template-columns: repeat(4, 1fr); }
+    .mode-toggle { grid-column: span 4; margin-bottom: 10px; }
+}
+
+
+
+/* Footer Container */
+.footer {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px 8% 20px;
+    margin-top: 100px;
+}
+
+.footer-heading {
+    color: #7dd3fc;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Email Copy Feature */
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.footer-copy-toast {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8ab4f8;
+    color: #1a1b1e;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.footer-copy-toast.show { opacity: 1; top: -35px; }
+
+/* Social Icons */
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social-icons a {
+    font-size: 24px;
+    color: #94a3b8;
+    transition: 0.3s;
+}
+
+.footer-social-icons a:hover { color: #8ab4f8; transform: translateY(-3px); }
+
+/* Bottom Bar */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 40px 0 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-legal-links {
+    display: inline-flex;
+    list-style: none;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.footer-legal-links a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Scroll Top Button */
+.scroll-top {
+    background: #8ab4f8;
+    color: #0f172a;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.scroll-top:hover { transform: translateY(-5px); background: #fff; }
+
+/* .................BMI CALCULATOR........................... */
+
+.bmi-result-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#bmi-value {
+    font-size: 3rem;
+    color: #8ab4f8;
+    margin-bottom: 5px;
+}
+
+#bmi-status {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Unit Button Toggles */
+.unit-btn {
+    flex: 1;
+    padding: 10px;
+    background: #3c4043;
+    border: 1px solid #5f6368;
+    color: #9aa0a6;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.unit-btn.active {
+    background: #8ab4f8;
+    color: #202124;
+    border-color: #8ab4f8;
+    font-weight: bold;
+}
+
+/* Rounded corners for the group */
+.unit-btn:first-child { border-radius: 6px 0 0 6px; }
+.unit-btn:last-child { border-radius: 0 6px 6px 0; }
+
+.custom-select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #3c4043;
+    border-radius: 6px;
+    color: white;
+    outline: none;
+}
+
+.bmi-table {
+    margin-top: 20px;
+    font-size: 13px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #94a3b8;
+}
+
+.table-row.head {
+    background: rgba(255,255,255,0.05);
+    color: #7dd3fc;
+    font-weight: bold;
+}
+
+.table-row.highlight {
+    background: rgba(138, 180, 248, 0.15);
+    color: #8ab4f8;
+    font-weight: bold;
+}
+
+/* Information Section Layout */
+.info-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.info-card h2, .info-card h3 {
+    color: #7dd3fc;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.info-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.info-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+}
+
+.info-list li strong {
+    color: #f8fafc;
+}
+
+.info-card.warning {
+    border-left: 4px solid #ffb86c;
+    background: rgba(255, 184, 108, 0.05);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.field { margin-bottom: 20px; text-align: left; }
+.field label { display: block; margin-bottom: 8px; color: #94a3b8; font-size: 0.9rem; }
+
+.row { display: flex; gap: 15px; }
+.row .field { flex: 1; }
+
+.split-input { display: flex; gap: 10px; }
+
+/* Gauge Styles */
+.gauge-bar {
+    height: 8px;
+    background: linear-gradient(to right, #7dd3fc, #50fa7b, #f1fa8c, #ffb86c, #ff5555);
+    border-radius: 10px;
+    position: relative;
+    margin: 40px 0 10px;
+}
+
+.gauge-wrapper {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Color Bar */
+.gauge-bar {
+    height: 10px;
+    width: 100%;
+    background: linear-gradient(to right, #7dd3fc 0%, #50fa7b 25%, #f1fa8c 50%, #ffb86c 75%, #ff5555 100%);
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Labels Alignment - Eita main fix */
+.gauge-labels {
+    display: flex;
+    justify-content: space-between; /* Eita lekha gulo ke puru jaygay choriye dibe */
+    width: 100%;
+    font-size: 12px;
+    color: #94a3b8;
+    padding: 0 5px;
+}
+
+.gauge-labels span {
+    flex: 1;
+    text-align: center;
+}
+
+/* First label left align and last label right align for better look */
+.gauge-labels span:first-child { text-align: left; }
+.gauge-labels span:last-child { text-align: right; }
+
+#bmi-pointer {
+    width: 3px;
+    height: 24px;
+    background: white;
+    position: absolute;
+    top: -8px;
+    left: 0%;
+    transition: 0.5s ease-out;
+    box-shadow: 0 0 10px white;
+}
+
+.advice-container {
+    background: rgba(138, 180, 248, 0.08);
+    border-left: 4px solid #8ab4f8;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: left;
+    animation: slideUp 0.4s ease;
+}
+
+.advice-card {
+    background: rgba(138, 180, 248, 0.05); /* Soft blue tint */
+    border-left: 5px solid #8ab4f8; /* Pro border highlight */
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 12px;
+    text-align: left;
+    animation: fadeInUp 0.6s ease;
+}
+
+.advice-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8ab4f8;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+#advice-text {
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.advice-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+    color: #64748b;
+    font-style: italic;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.table-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #94a3b8;
+}
+
+.table-item.highlight {
+    background: rgba(138, 180, 248, 0.1);
+    color: #8ab4f8;
+    border-radius: 8px;
+}
+
+
+/* ........................CGPA Styles.......................... */
+/* Professional Grade Table Styling */
+.cgpa-table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+}
+
+.cgpa-table thead {
+    background: rgba(138, 180, 248, 0.1); /* Subtle blue tint for header */
+}
+
+.cgpa-table th {
+    color: #8ab4f8;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 15px;
+}
+
+.cgpa-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Input Styling inside the table */
+.subj-input, .credit-input, .grade-input {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e2e8f0 !important;
+    padding: 10px !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.subj-input:focus, .credit-input:focus, .grade-input:focus {
+    border-color: #8ab4f8 !important;
+    background: rgba(138, 180, 248, 0.05) !important;
+    outline: none;
+}
+
+/* Grade Point Colors (Optional: Color-coded dropdown) */
+.grade-input option {
+    background: #1a1b1e; /* Match your background */
+    color: white;
+}
+
+.grading-panel {
+    display: grid;
+    gap: 18px;
+}
+
+.grading-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.grading-header h3 {
+    margin: 0;
+    color: #8ab4f8;
+}
+
+.grading-note {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    max-width: 260px;
+    line-height: 1.4;
+}
+
+.grading-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+}
+
+.grading-table th,
+.grading-table td {
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.grading-table thead {
+    background: rgba(138, 180, 248, 0.11);
+}
+
+.grading-table th {
+    color: #8ab4f8;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.grading-table tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.grading-table tbody tr:nth-child(even) {
+    background: rgba(255,255,255,0.03);
+}
+
+.grading-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.grading-table td {
+    color: #dbeafe;
+    font-size: 0.95rem;
+}
+
+.grading-table .grade-f {
+    color: #ff8a8a;
+}
+
+/* Result highlight colors */
+#final-cgpa {
+    background: linear-gradient(to right, #8ab4f8, #50fa7b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* PDF Template specific styles */
+#marksheet-template {
+    width: 800px !important; /* Fixed width for consistent capture */
+    position: absolute;
+    left: -9999px; /* Hide from UI but keep in DOM */
+    display: block !important; 
+}
+
+#marksheet-template table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+
+
+@media (max-width: 800px) { .dashboard-container { grid-template-columns: 1fr; } }
+
+.info-card.warning h3 {
+    color: #ffb86c;
+}
+
+/* Mobile Fix */
+@media (max-width: 600px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}

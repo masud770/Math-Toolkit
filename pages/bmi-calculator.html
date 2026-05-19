@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Analysis Dashboard - Math Toolkit</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><i class="ri-calculator-line"></i> Math Toolkit</div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="number-converter.html">Number Converter</a>
+            <a href="calculator.html">SCI-Calculator</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="cgpa-calculator.html">CGPA Calculator</a>
+            <a href="../index.html#about-me">About Me</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1 class="main-title">BMI Analysis Dashboard</h1>
+        
+        <div class="dashboard-container">
+            <div class="glass-panel input-side">
+                <div class="row">
+                    <div class="field">
+                        <label>Age</label>
+                        <input type="number" id="age" placeholder="Input your age" oninput="calculateBMI()">
+                    </div>
+                    <div class="field">
+                        <label>Gender</label>
+                        <select id="gender" onchange="calculateBMI()">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Height Unit</label>
+                    <div class="toggle-group">
+                        <button id="btn-metric" class="toggle-btn active" onclick="setUnit('metric')">Metric</button>
+                        <button id="btn-us" class="toggle-btn" onclick="setUnit('us')">US Units</button>
+                    </div>
+                </div>
+
+                <div id="metric-group" class="field height-group">
+                    <label>Height (Centimeter)</label>
+                    <input type="number" id="height-cm" placeholder="175" oninput="calculateBMI()">
+                </div>
+
+                <div id="us-group" class="field height-group" style="display: none;">
+                    <label>Height (foot + inch)</label>
+                    <div class="split-input">
+                        <input type="number" id="height-ft" placeholder="foot" oninput="calculateBMI()">
+                        <input type="number" id="height-in" placeholder="inch" oninput="calculateBMI()">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="70" oninput="calculateBMI()">
+                </div>
+            </div>
+
+            <div class="glass-panel result-side">
+                <div class="result-header">
+                    <h2 id="bmi-value">0.0</h2>
+                    <p id="bmi-status">Ready to Calculate</p>
+                </div>
+
+                <div class="gauge-wrapper">
+                    <div class="gauge-bar">
+                        <div id="bmi-pointer"></div>
+                    </div>
+                    <div class="gauge-labels">
+                        <span>Underweight</span>
+                        <span>Normal</span>
+                        <span>Overweight</span>
+                        <span>Obese</span>
+                    </div>
+                </div>
+
+                <div class="status-table">
+                    <div class="table-item" id="row-thin"><span>Thinness</span><span>&lt; 18.5</span></div>
+                    <div class="table-item" id="row-normal"><span>Healthy</span><span>18.5 - 25</span></div>
+                    <div class="table-item" id="row-over"><span>Overweight</span><span>25 - 30</span></div>
+                    <div class="table-item" id="row-obese"><span>Obese</span><span>&gt; 30</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="advice-box" class="advice-card" style="display: none;">
+            <div class="advice-header">
+                 <i class="ri-heart-pulse-fill"></i>
+                <span>Health Recommendations</span>
+            </div>
+                <p id="advice-text"></p>
+             <div class="advice-footer">
+                <small>*Disclaimer: Consult a doctor for medical advice.</small>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Math Toolkit | Designed & Developed by <a href="https://masud.aio.bd" target="_blank" rel="noopener noreferrer">Md. Masud Rana</a></p>
+            <div class="social-links">
+                <a href="https://github.com/masud770" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+                <a href="https://www.linkedin.com/in/masudr760/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/bmi.js"></script>
+</body>
+</html>

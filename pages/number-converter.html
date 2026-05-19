@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Converter - Math Toolkit</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body class="converter-page">
+
+    <nav class="navbar">
+        <div class="logo"><i class="fa-solid fa-calculator"></i> Math Toolkit</div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="number-converter.html">Number Converter</a>
+            <a href="calculator.html">SCI-Calculator</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="cgpa-calculator.html">CGPA Calculator</a>
+            <a href="../index.html#about-me">About Me</a> 
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="dashboard-container" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; max-width: 1100px; margin: 40px auto;">
+            
+            <section class="glass-panel">
+                <h2>Input <span class="badge" style="font-size: 12px; float: right;">Live</span></h2>
+                
+                <div style="margin: 20px 0;">
+                    <label>Enter Number</label>
+                    <input type="text" id="numberInput" placeholder="e.g. 101 or f" oninput="convertNumber()" style="width:100%; padding:12px; margin-top:8px;">
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <label>Current Base</label>
+                    <select id="fromBase" onchange="convertNumber()" style="width:100%; padding:12px; margin-top:8px; background: #1e293b; color: white;">
+                        <option value="2">Binary (Base 2)</option>
+                        <option value="8">Octal (Base 8)</option>
+                        <option value="10" selected>Decimal (Base 10)</option>
+                        <option value="16">Hexadecimal (Base 16)</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="glass-panel">
+                <h2>Results</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                    <div class="result-card" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
+                        <p style="font-size: 12px; color: #94a3b8;">Binary</p>
+                        <strong id="binaryResult">---</strong>
+                    </div>
+                    <div class="result-card" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
+                        <p style="font-size: 12px; color: #94a3b8;">Octal</p>
+                        <strong id="octalResult">---</strong>
+                    </div>
+                    <div class="result-card" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
+                        <p style="font-size: 12px; color: #94a3b8;">Decimal</p>
+                        <strong id="decimalResult">---</strong>
+                    </div>
+                    <div class="result-card" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
+                        <p style="font-size: 12px; color: #94a3b8;">Hexadecimal</p>
+                        <strong id="hexResult">---</strong>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/converter.js"></script>
+</body>
+</html>
