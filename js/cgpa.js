@@ -10,7 +10,7 @@ function addRow() {
     
     tr.innerHTML = `
         <td><input type="text" class="subj-input" placeholder="e.g. Physics"></td>
-        <td><input type="number" step="0.01" min="0" class="credit-input" placeholder="3.0"></td>
+        <td><input type="number" step="0.25" min="0" class="credit-input" placeholder="3.0"></td>
         <td>
             <select class="grade-input">
                 <option value="4.00">A+ (4.00)</option>
@@ -18,8 +18,10 @@ function addRow() {
                 <option value="3.50">A- (3.50)</option>
                 <option value="3.25">B+ (3.25)</option>
                 <option value="3.00">B (3.00)</option>
+                <option value="2.75">B- (2.75)</option>
                 <option value="2.50">C+ (2.50)</option>
-                <option value="2.00">D (2.00)</option>
+                <option value="2.00">C (2.00)</option>
+                <option value="1.00">D (1.00)</option>
                 <option value="0.00">F (0.00)</option>
             </select>
         </td>
@@ -111,7 +113,7 @@ function downloadResult() {
         <div style="padding: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #000; background: #fff;">
             <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
                 <h1 style="margin: 0; text-transform: uppercase;">${instituteName}</h1>
-                <p style="margin: 5px 0; font-size: 14px; letter-spacing: 2px;">OFFICIAL ACADEMIC MARKSHEET</p>
+                <p style="margin: 5px 0; font-size: 14px; letter-spacing: 2px;">UNOFFICIAL ACADEMIC MARKSHEET</p>
             </div>
             
             <div style="display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 14px;">

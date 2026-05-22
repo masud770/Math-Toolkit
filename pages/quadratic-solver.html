@@ -3,16 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quadratic Solver - Math Toolkit</title>
+    <title>Quadratic Solver Pro - Math Toolkit</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <style>
+        .solver-container { max-width: 900px; margin: 40px auto; display: flex; flex-direction: column; min-height: calc(100vh - 220px); }
+        .solver-row { display: grid; grid-template-columns: 1fr 350px; gap: 20px; align-items: start; }
+        .equation-row { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.5rem; margin: 20px 0; color: #8ab4f8; }
+        .equation-row input { width: 60px; background: #0f172a; border: 1px solid #334155; color: white; padding: 8px; border-radius: 5px; text-align: center; }
+        
+        .graph-card { background: #1e293b; padding: 15px; border-radius: 12px; height: fit-content; text-align: center; }
+        canvas { background: #0f172a; border-radius: 8px; width: 100%; max-width: 300px; height: 300px; display:block; }
+
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .detail-item { background: rgba(15, 23, 42, 0.5); padding: 10px; border-radius: 8px; font-size: 13px; }
+        .detail-item span { display: block; color: #94a3b8; font-size: 11px; }
+        
+        .doc-card { background: rgba(30, 41, 59, 0.5); padding: 25px; border-radius: 12px; margin-top: 20px; line-height: 1.6; border-top: 4px solid #38bdf8; margin-bottom: 10px; }
+        /* keep the How it Works block at the end of the page above the fixed footer when there's extra vertical space */
+        .doc-card { margin-top: auto; }
+        .formula-box { background: #0f172a; padding: 10px; text-align: center; border-radius: 8px; margin: 10px 0; font-family: monospace; color: #38bdf8; }
+
+        /* Responsive behavior for the Quadratic Solver */
+        @media (max-width: 900px) {
+            .solver-row { grid-template-columns: 1fr; padding: 0 16px; }
+            .graph-card { order: 2; max-width: 100%; }
+            .left-panel { order: 1; }
+            canvas { height: 260px; max-width: 100%; }
+            .equation-row { flex-wrap: wrap; font-size: 1.2rem; gap: 8px; }
+            .equation-row input { width: 56px; margin: 6px 0; }
+            .details-grid { grid-template-columns: 1fr; }
+            .doc-card { padding: 18px; }
+        }
+
+        @media (max-width: 480px) {
+            .solver-container { margin: 20px 12px; gap: 12px; }
+            canvas { height: 220px; }
+            .equation-row input { width: 52px; padding: 6px; }
+            .formula-box { font-size: 0.95rem; }
+            .equation-row { font-size: 1.05rem; }
+            .converter-card h2 { font-size: 1.2rem; }
+        }
+    </style>
 </head>
-<body class="solver-page">
+<body>
 
     <nav class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-calculator"></i> Math Toolkit
-        </div>
+        <div class="logo"><i class="fa-solid fa-calculator"></i> Math Toolkit</div>
         <div class="nav-links">
             <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
             <a href="number-converter.html"><i class="fa-solid fa-arrow-right-arrow-left"></i> Number Converter</a>
@@ -20,48 +57,47 @@
             <a href="bmi-calculator.html"><i class="fa-solid fa-heart-pulse"></i> BMI Calculator</a>
             <a href="cgpa-calculator.html"><i class="fa-solid fa-chart-line"></i> CGPA Calculator</a>
             <a href="quadratic-solver.html" class="active"><i class="fa-solid fa-square-root-variable"></i> Quadratic Solver</a>
-            <a href="https://masud.aio.bd/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-user"></i> About Me</a> 
+            <a href="https://masud.aio.bd/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-user"></i> About Me</a>
         </div>
     </nav>
 
     <main class="main-content">
-        <div class="converter-card">
-            <h2>Quadratic Equation Solver</h2>
-            <p style="text-align: center; color: #94a3b8; font-size: 14px; margin-top: -15px; margin-bottom: 20px;">
-                Format: ax² + bx + c = 0
-            </p>
+        <div class="solver-container">
+            <div class="left-panel">
+                <div class="converter-card" style="max-width: 100%;">
+                    <h2>Quadratic Equation Solver</h2>
+                    <div class="equation-row">
+                        <input type="number" id="quadA" value="1" oninput="solveQuadratic()"> <span>x² +</span>
+                        <input type="number" id="quadB" value="-5" oninput="solveQuadratic()"> <span>x +</span>
+                        <input type="number" id="quadC" value="6" oninput="solveQuadratic()"> <span>= 0</span>
+                    </div>
+
+                    <div style="text-align: center; margin: 15px 0;">
+                        <small style="color: #94a3b8;">Roots:</small>
+                        <div id="heroRoots" style="font-size: 2rem; color: #38bdf8; font-weight: bold;">3.00, 2.00</div>
+                    </div>
+
+                    <div class="details-grid">
+                        <div class="detail-item"><span>Discriminant (Δ)</span><b id="valDisc">1</b></div>
+                        <div class="detail-item"><span>Vertex (h, k)</span><b id="valVertex">(2.5, -0.25)</b></div>
+                        <div class="detail-item"><span>Sum (-b/a)</span><b id="valSum">5.00</b></div>
+                        <div class="detail-item"><span>Product (c/a)</span><b id="valProd">6.00</b></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="graph-card">
+                <h3>Visual Graph</h3>
+                <canvas id="quadGraph"></canvas>
+                <p style="font-size: 11px; color: #94a3b8; margin-top: 10px;">Blue line represents the Parabola.</p>
+            </div>
             
-            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-                <div>
-                    <label for="quadA">Value (a)</label>
-                    <input type="number" id="quadA" placeholder="e.g. 1" oninput="solveQuadratic()">
-                </div>
-                <div>
-                    <label for="quadB">Value (b)</label>
-                    <input type="number" id="quadB" placeholder="e.g. -5" oninput="solveQuadratic()">
-                </div>
-                <div>
-                    <label for="quadC">Value (c)</label>
-                    <input type="number" id="quadC" placeholder="e.g. 6" oninput="solveQuadratic()">
-                </div>
-            </div>
-
-            <div class="results-grid" style="grid-template-columns: 1fr; margin-top: 20px;">
-                <div class="result-box" style="text-align: center; margin-bottom: 10px;">
-                    <small>Discriminant (b² - 4ac)</small>
-                    <div id="outDiscriminant" class="result-value">---</div>
-                </div>
-            </div>
-
-            <div class="results-grid">
-                <div class="result-box">
-                    <small>Root 1 (x₁)</small>
-                    <div id="outRoot1" class="result-value">---</div>
-                </div>
-                <div class="result-box">
-                    <small>Root 2 (x₂)</small>
-                    <div id="outRoot2" class="result-value">---</div>
-                </div>
+            <div class="doc-card" style="grid-column: 1 / -1;">
+                <h3>How it Works</h3>
+                <p>The standard form is $ax^2 + bx + c = 0$. We use the <b>Quadratic Formula</b>:</p>
+                <div class="formula-box">x = [-b ± √(b² - 4ac)] / 2a</div>
+                <p>The <b>Discriminant</b> ($b^2 - 4ac$) tells us the types of roots. If it's negative, roots are complex (imaginary).</p>
             </div>
         </div>
     </main>
@@ -70,8 +106,8 @@
         <div class="footer-content">
             <p>&copy; 2026 Math Toolkit | Designed & Developed by <a href="https://masud.aio.bd" target="_blank" rel="noopener noreferrer">Md. Masud Rana</a></p>
             <div class="social-links">
-                <a href="https://github.com/masud770" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/masudr760/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/masud770" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/masudr760/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
