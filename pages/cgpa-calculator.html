@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<body>
+<body class="cgpa-page">
     <nav class="navbar">
     <div class="logo">
       <i class="fa-solid fa-calculator"></i>
@@ -27,12 +27,12 @@
   </nav>
 
     <div class="hero">
-        <h1 style="text-align: center; margin-bottom: 30px;">CGPA Analysis Dashboard</h1>
+        <h1 class="page-title">CGPA Analysis Dashboard</h1>
         
-        <div class="dashboard-container" style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; max-width: 1200px; margin: 0 auto;">
+        <div class="dashboard-container cgpa-dashboard">
             
             <div class="input-section">
-                <div class="glass-panel" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                <div class="glass-panel grid-two-columns">
                     <div class="field">
                         <label>Student Name</label>
                         <input type="text" id="student-name" placeholder="Enter Full Name">
@@ -68,8 +68,10 @@
                                         <option value="3.50">A- (3.50)</option>
                                         <option value="3.25">B+ (3.25)</option>
                                         <option value="3.00">B (3.00)</option>
+                                        <option value="2.75">B- (2.75)</option>
                                         <option value="2.50">C+ (2.50)</option>
-                                        <option value="2.00">D (2.00)</option>
+                                        <option value="2.00">C (2.00)</option>
+                                        <option value="1.00">D (1.00)</option>
                                         <option value="0.00">F (0.00)</option>
                                     </select>
                                 </td>
@@ -77,7 +79,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="add-row-btn" onclick="addRow()" style="width: 100%; border: 1px dashed #8ab4f8; background: none; color: #8ab4f8; padding: 10px; margin-top: 10px; cursor: pointer;">
+                    <button class="add-row-btn cgpa-action-btn" onclick="addRow()">
                         <i class="ri-add-circle-line"></i> Add New Subject
                     </button>
                 </div>
@@ -101,12 +103,12 @@
                             <tr>
                                 <td>A+</td>
                                 <td>4.00</td>
-                                <td>Excellent</td>
+                                <td>Outstanding</td>
                             </tr>
                             <tr>
                                 <td>A</td>
                                 <td>3.75</td>
-                                <td>Outstanding</td>
+                                <td>Excellent</td>
                             </tr>
                             <tr>
                                 <td>A-</td>
@@ -121,6 +123,11 @@
                             <tr>
                                 <td>B</td>
                                 <td>3.00</td>
+                                <td>Satisfactory</td>
+                            </tr>
+                            <tr>
+                                <td>B-</td>
+                                <td>2.75</td>
                                 <td>Above Average</td>
                             </tr>
                             <tr>
@@ -129,8 +136,13 @@
                                 <td>Average</td>
                             </tr>
                             <tr>
-                                <td>D</td>
+                                <td>C</td>
                                 <td>2.00</td>
+                                <td>Below Average</td>
+                            </tr>
+                            <tr>
+                                <td>D</td>
+                                <td>1.00</td>
                                 <td>Pass</td>
                             </tr>
                             <tr>
@@ -144,12 +156,12 @@
             </div>
         </div>
 
-        <div style="display: flex; gap: 20px; max-width: 1200px; margin: 25px auto;">
-            <button class="action-btn" onclick="calculateCGPA()" style="flex: 1; height: 50px; background: #8ab4f8; color: #000;"><i class="ri-flashlight-line"></i> Calculate Result</button>
-            <button class="action-btn" onclick="downloadResult()" style="flex: 1; height: 50px; background: #50fa7b; color: #000;"><i class="ri-file-download-line"></i> Export Marksheet</button>
+        <div class="button-group">
+            <button class="action-btn cgpa-action-btn primary" onclick="calculateCGPA()"><i class="ri-flashlight-line"></i> Calculate Result</button>
+            <button class="action-btn cgpa-action-btn secondary" onclick="downloadResult()"><i class="ri-file-download-line"></i> Export Marksheet</button>
         </div>
 
-        <div id="cgpa-result-card" class="glass-panel" style="max-width: 1200px; margin: 0 auto; display: none; text-align: center;">
+        <div id="cgpa-result-card" class="glass-panel result-panel">
             <p style="color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">Final CGPA</p>
             <h2 id="final-cgpa" style="font-size: 4rem; color: #8ab4f8; margin: 10px 0;">3.88</h2>
             <div style="display: flex; justify-content: center; gap: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
@@ -162,11 +174,14 @@
     <footer class="main-footer">
         <div class="footer-content">
             <p>&copy; 2026 Math Toolkit | Designed & Developed by <a href="https://masud.aio.bd" target="_blank" rel="noopener noreferrer">Md. Masud Rana</a></p>
-                <div class="social-links">
-            <a href="https://github.com/masud770" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/masudr760/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+            <div class="social-links">
+                <a href="https://github.com/masud770" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/masudr760/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <script src="../js/cgpa.js"></script>
 
 </body>
