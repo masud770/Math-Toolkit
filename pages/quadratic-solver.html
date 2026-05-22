@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Solver - Math Toolkit</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body class="solver-page">
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-calculator"></i> Math Toolkit
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="number-converter.html">Number Converter</a>
+            <a href="calculator.html">SCI-Calculator</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="cgpa-calculator.html">CGPA Calculator</a>
+            <a href="quadratic-solver.html" class="active">Quadratic Solver</a>
+            <a href="https://masud.aio.bd/" target="_blank" rel="noopener noreferrer">About Me</a> 
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="converter-card">
+            <h2>Quadratic Equation Solver</h2>
+            <p style="text-align: center; color: #94a3b8; font-size: 14px; margin-top: -15px; margin-bottom: 20px;">
+                Format: ax² + bx + c = 0
+            </p>
+            
+            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                <div>
+                    <label for="quadA">Value (a)</label>
+                    <input type="number" id="quadA" placeholder="e.g. 1" oninput="solveQuadratic()">
+                </div>
+                <div>
+                    <label for="quadB">Value (b)</label>
+                    <input type="number" id="quadB" placeholder="e.g. -5" oninput="solveQuadratic()">
+                </div>
+                <div>
+                    <label for="quadC">Value (c)</label>
+                    <input type="number" id="quadC" placeholder="e.g. 6" oninput="solveQuadratic()">
+                </div>
+            </div>
+
+            <div class="results-grid" style="grid-template-columns: 1fr; margin-top: 20px;">
+                <div class="result-box" style="text-align: center; margin-bottom: 10px;">
+                    <small>Discriminant (b² - 4ac)</small>
+                    <div id="outDiscriminant" class="result-value">---</div>
+                </div>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-box">
+                    <small>Root 1 (x₁)</small>
+                    <div id="outRoot1" class="result-value">---</div>
+                </div>
+                <div class="result-box">
+                    <small>Root 2 (x₂)</small>
+                    <div id="outRoot2" class="result-value">---</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Math Toolkit | Designed & Developed by <a href="https://masud.aio.bd" target="_blank" rel="noopener noreferrer">Md. Masud Rana</a></p>
+            <div class="social-links">
+                <a href="https://github.com/masud770" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/masudr760/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/quadratic.js"></script>
+</body>
+</html>

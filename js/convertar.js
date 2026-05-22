@@ -1,51 +1,50 @@
-function doConversion() {
-    const txt = document.getElementById('numInput').value.trim();
-    const base = parseInt(document.getElementById('baseSelect').value);
-    
-    // Map text boxes securely
-    const displayBin = document.getElementById('outBin');
-    const displayOct = document.getElementById('outOct');
-    const displayDec = document.getElementById('outDec');
-    const displayHex = document.getElementById('outHex');
+function solveQuadratic() {
+    const a = parseFloat(document.getElementById('quadA').value);
+    const b = parseFloat(document.getElementById('quadB').value);
+    const c = parseFloat(document.getElementById('quadC').value);
 
-    // Instantly blank results if input clear
-    if (txt === "") {
-        displayBin.innerText = "---";
-        displayOct.innerText = "---";
-        displayDec.innerText = "---";
-        displayHex.innerText = "---";
+    const outDisc = document.getElementById('outDisc');
+    const outNature = document.getElementById('outNature');
+    const outR1 = document.getElementById('outR1');
+    const outR2 = document.getElementById('outR2');
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        outDisc.innerText = "---";
+        outNature.innerText = "Awaiting Input...";
+        outR1.innerText = "---";
+        outR2.innerText = "---";
         return;
     }
 
-    // Strict regex check rules for each numeric base system
-    const regexPatterns = {
-        2: /^[0-1]+$/,
-        8: /^[0-7]+$/,
-        10: /^[0-9]+$/,
-        16: /^[0-9a-fA-F]+$/
-    };
-
-    // Flag input mismatch anomalies instantly
-    if (!regexPatterns[base].test(txt)) {
-        displayBin.innerText = "Invalid";
-        displayOct.innerText = "Invalid";
-        displayDec.innerText = "Invalid";
-        displayHex.innerText = "Invalid";
+    if (a === 0) {
+        outNature.innerText = "Not Quadratic (a=0)";
         return;
     }
 
-    // Convert value out across standard bases
-    try {
-        const decimalNum = parseInt(txt, base);
-        
-        displayBin.innerText = decimalNum.toString(2);
-        displayOct.innerText = decimalNum.toString(8);
-        displayDec.innerText = decimalNum.toString(10);
-        displayHex.innerText = decimalNum.toString(16).toUpperCase();
-    } catch (err) {
-        displayBin.innerText = "Error";
-        displayOct.innerText = "Error";
-        displayDec.innerText = "Error";
-        displayHex.innerText = "Error";
+    const D = (b * b) - (4 * a * c);
+    outDisc.innerText = D.toFixed(2);
+
+    if (D > 0) {
+        const x1 = (-b + Math.sqrt(D)) / (2 * a);
+        const x2 = (-b - Math.sqrt(D)) / (2 * a);
+        outR1.innerText = x1.toFixed(4);
+        outR2.innerText = x2.toFixed(4);
+        outNature.innerText = "Two Real & Distinct Roots";
+        outNature.style.color = "#4ade80"; // Green
+    } 
+    else if (D === 0) {
+        const x = -b / (2 * a);
+        outR1.innerText = x.toFixed(4);
+        outR2.innerText = x.toFixed(4);
+        outNature.innerText = "One Repeating Real Root";
+        outNature.style.color = "#facc15"; // Yellow
+    } 
+    else {
+        const real = (-b / (2 * a)).toFixed(4);
+        const imag = (Math.sqrt(-D) / (2 * a)).toFixed(4);
+        outR1.innerText = `${real} + ${imag}i`;
+        outR2.innerText = `${real} - ${imag}i`;
+        outNature.innerText = "Two Complex Roots";
+        outNature.style.color = "#f87171"; // Red
     }
 }
